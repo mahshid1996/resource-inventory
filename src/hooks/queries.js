@@ -197,7 +197,7 @@ function sortValue(value) {
 
 
 // Temporarily added function to get range of resource characteristics
-// like -> resourceCharacteristic.range=MSISDN,9156567767,9156567768
+// like -> resourceCharacteristic.code=MSISDN|3652039
 function getCharData(context, value) {
   if (typeof value === "string") {
     var range = value.toString();
