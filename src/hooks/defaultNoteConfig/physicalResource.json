@@ -1,0 +1,28 @@
+{
+    "name": "PhysicalResource",
+    "description": "note config for logical resources",
+    "code": "PhysicalResource",
+    "@type": "Note",
+    "@baseType": "Configuration",
+    "configCharacteristics": [
+        {
+            "configCharacteristicsValues": [
+                {
+                    "valueType": "string",
+                    "value": "11"
+                }
+            ],
+            "name": "threshold",
+            "code": "threshold",
+            "valueType": "string"
+        }
+    ],
+    "relatedParty": [
+        {
+            "name": "drmuser",
+            "email": "",
+            "phone": ""
+        }
+    ],
+    "attachment": []
+}

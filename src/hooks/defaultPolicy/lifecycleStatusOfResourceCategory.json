@@ -1,0 +1,74 @@
+{
+    "name": "Lifecycle",
+    "initialState": "Initial",
+    "finalStates": ["Retired"],
+    "transitions": [
+      {
+        "event": "pendingApproval",
+        "from": "Initial",
+        "to": "Active",
+        "automatic": [
+          {
+            "name": "userHasRoles", 
+            "params": [
+              {
+                "name": "restrictedRoles",
+                "value": [""]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "pendingApproval",
+        "from": "Active",
+        "to": "Launched",
+        "guards": [
+          {
+            "name": "userHasRoles",
+            "params": [
+              {
+                "name": "restrictedRoles",
+                "value": [""]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "pendingApproval",
+        "from": "Launched",
+        "to": "Retired",
+        "guards": [
+          {
+            "name": "userHasRoles",
+            "params": [
+              {
+                "name": "restrictedRoles",
+                "value": [""]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "states": [
+      {
+        "name": "Initial",
+        "description": "Initial"
+      },
+      {
+        "name": "Active",
+        "description": "Active"
+      },
+      {
+        "name": "Launched",
+        "description": "Launched"
+      },
+      {
+        "name": "Retired",
+        "description": "Retired"
+      }
+    ]
+  }
+  

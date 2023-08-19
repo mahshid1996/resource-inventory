@@ -1,0 +1,45 @@
+{
+  "v1/logical-resource": [
+    {
+      "ref": "category",
+      "serviceName": "v1/resource-category",
+      "$select": [
+        "id",
+        "href",
+        "name",
+        "version",
+        "code",
+        "description"
+      ]
+    }
+  ],
+  "v1/physical-resource": [
+
+    {
+      "ref": "category",
+      "serviceName": "v1/resource-category",
+      "$select": [
+        "id",
+        "href",
+        "name",
+        "version",
+        "code",
+        "description"
+      ]
+    }
+  ],
+  "v1/resource-category": [
+    {
+      "ref": "category",
+      "serviceName": "v1/resource-category",
+      "$select": [
+        "id",
+        "href",
+        "name",
+        "version",
+        "code",
+        "description"
+      ]
+    }
+  ]
+}

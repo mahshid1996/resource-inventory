@@ -1,0 +1,313 @@
+{
+  "name": "Lifecycle",
+  "initialState": ["Available","Created"],
+  "finalStates": ["Retired"],
+  "transitions": [
+    {
+      "event": "pendingApproval",
+      "from": "Created",
+      "to": "Available",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Available",
+      "to": "Blocked",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Blocked",
+      "to": "Available",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Available",
+      "to": "Reserved",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Available",
+      "to": "Pooled",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Pooled",
+      "to": "Available",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Pooled",
+      "to": "Reserved",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Reserved",
+      "to": "Installing",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Reserved",
+      "to": "Operating",
+      "automatic": [
+        {
+          "name": "userHasRoles", 
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Installing",
+      "to": "Operating",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Operating",
+      "to": "Retired",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "pendingApproval",
+      "from": "Retired",
+      "to": "Operating",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "rejectOperating",
+      "from": "Operating",
+      "to": "Installing",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "rejectOperating",
+      "from": "Installing",
+      "to": "Reserved",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "rejectOperating",
+      "from": "Reserved",
+      "to": "Available",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "rejectOperating",
+      "from": "Retired",
+      "to": "Available",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event": "rejectOperating",
+      "from": "Reserved",
+      "to": "Pooled",
+      "guards": [
+        {
+          "name": "userHasRoles",
+          "params": [
+            {
+              "name": "restrictedRoles",
+              "value": [""]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "states": [
+    {
+      "name": "Created",
+      "description": "Created"
+    },
+    {
+      "name": "Available",
+      "description": "Available"
+    },
+    {
+      "name": "Blocked",
+      "description": "Blocked"
+    },
+    {
+      "name": "Pooled",
+      "description": "Pooled"
+    },
+    {
+      "name": "Reserved",
+      "description": "Reserved"
+    },
+    {
+      "name": "Installing",
+      "description": "Installing"
+    },
+    {
+      "name": "Operating",
+      "description": "Operating"
+    },
+    {
+      "name": "Retired",
+      "description": "Retired"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+    "name": "LogicalResource",
+    "description": "note config for logical resources",
+    "code": "LogicalResource",
+    "@type": "Note",
+    "@baseType": "Configuration",
+    "configCharacteristics": [
+        {
+            "configCharacteristicsValues": [
+                {
+                    "valueType": "string",
+                    "value": "10"
+                }
+            ],
+            "name": "threshold",
+            "code": "threshold",
+            "valueType": "string"
+        }
+    ],
+    "relatedParty": [
+        {
+            "name": "drmuser",
+            "email": "",
+            "phone": ""
+        }
+    ],
+    "attachment": []
+}

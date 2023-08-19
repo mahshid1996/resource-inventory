@@ -1,0 +1,258 @@
+syntax = "proto3";
+
+package protos;
+
+//Empty message
+message Empty { }
+
+// Taks we have to do
+message MasterConfigMessage{
+    // Unique identifier of the MasterConfigMessage task
+    string id = 1;
+
+    // href of the MasterConfigMessage task
+    string href = 2;
+
+    // name of of the MasterConfigMessage task
+    string name = 3;
+
+    // description of the MasterConfigMessage task
+    string description = 4;
+
+    // @type of the MasterConfigMessage task
+    string type = 6[json_name = "@type"];
+
+    // @baseType of the MasterConfigMessage task
+    string baseType = 7[json_name = "@baseType"];
+
+    // RelatedParty of the MasterConfigMessage task
+    message RelatedParty{
+        string name = 1;
+        string email = 2;
+        string phone = 3;
+    }
+    repeated RelatedParty relatedParty = 8 ;
+
+    // attachment of the MasterConfigMessage task
+    message Attachment{
+        string id = 1 ;
+        string href = 2;
+        string attachmentType = 3;
+        string content = 4;
+        string description = 5;
+        string mimeType = 6;
+        string name = 7;
+        string url = 8;
+        message Size{
+            string amount = 1;
+            string units = 2;
+        }
+        Size size = 9 [json_name = "size"];
+        message ValidFor{
+          string startDateTime = 1;
+          string endDateTime = 2;
+        }
+        ValidFor validFor = 10 [json_name = "validFor"];
+        string baseType = 11[json_name = "@baseType"];
+        string type = 12[json_name = "@type"];
+        string schemaLocation = 13[json_name = "@schemaLocation"];
+        string referredType = 14[json_name = "@referredType"];
+    }
+    repeated Attachment attachment = 9;
+
+    // configCharacteristics of the MasterConfigMessage task
+    message ConfigCharacteristics{
+        string name = 1 ;
+        string code = 2;
+        string valueType = 3;
+
+        message ConfigCharacteristicsValues{
+        string valueType = 1;
+        string  value = 2;
+        message TransitionsStatus {
+            string from = 1;
+            string to = 2;
+        }
+        repeated TransitionsStatus transitionsStatus = 3;
+        }
+        repeated ConfigCharacteristicsValues configCharacteristicsValues = 4;
+    }
+    repeated ConfigCharacteristics configCharacteristics = 10;
+
+    // version of the MasterConfigMessage task
+    int64 version = 11;
+
+    // code of the MasterConfigMessage task
+    string code = 12;
+
+}
+
+// Taks we have to do
+message TypesMasterConfigMessage{
+    // Unique identifier of the MasterConfigMessage task
+    string id = 1;
+
+    // href of the MasterConfigMessage task
+    string href = 2;
+
+    // name of of the MasterConfigMessage task
+    string name = 3;
+
+    // description of the MasterConfigMessage task
+    string description = 4;
+
+    // @type of the MasterConfigMessage task
+    string type = 6[json_name = "@type"];
+
+    // @baseType of the MasterConfigMessage task
+    string baseType = 7[json_name = "@baseType"];
+
+    // RelatedParty of the MasterConfigMessage task
+    message RelatedParty{
+        string name = 1;
+        string email = 2;
+        string phone = 3;
+    }
+    repeated RelatedParty relatedParty = 8 ;
+
+    // attachment of the MasterConfigMessage task
+    message Attachment{
+        string id = 1 ;
+        string href = 2;
+        string attachmentType = 3;
+        string content = 4;
+        string description = 5;
+        string mimeType = 6;
+        string name = 7;
+        string url = 8;
+        message Size{
+            string amount = 1;
+            string units = 2;
+        }
+        Size size = 9 [json_name = "size"];
+        message ValidFor{
+          string startDateTime = 1;
+          string endDateTime = 2;
+        }
+        ValidFor validFor = 10 [json_name = "validFor"];
+        string baseType = 11[json_name = "@baseType"];
+        string type = 12[json_name = "@type"];
+        string schemaLocation = 13[json_name = "@schemaLocation"];
+        string referredType = 14[json_name = "@referredType"];
+    }
+    repeated Attachment attachment = 9;
+
+    // configCharacteristics of the MasterConfigMessage task
+    message ConfigCharacteristics{
+        string name = 1 ;
+        string code = 2;
+        string valueType = 3;
+
+        message ConfigCharacteristicsValues{
+        string valueType = 1;
+        message values{
+            string type=1;
+            string baseType=2;
+        }
+        values value = 2;
+        message TransitionsStatus {
+            string from = 1;
+            string to = 2;
+        }
+        repeated TransitionsStatus transitionsStatus = 3;
+        }
+        repeated ConfigCharacteristicsValues configCharacteristicsValues = 4;
+    }
+    repeated ConfigCharacteristics configCharacteristics = 10;
+
+    // version of the MasterConfigMessage task
+    int64 version = 11;
+
+    // code of the MasterConfigMessage task
+    string code = 12;
+
+}
+//########## ReadAll ##########//
+// Request data to read Service task
+message ReadAllMasterConfigRequest{
+    string Query = 1;
+}
+
+// Response data to ReadAll Service task
+message ReadAllMasterConfigResponse{
+    repeated MasterConfigMessage masterConfig = 1;
+    int64 totalCount =2;
+    int64 appLimit = 3;
+ }
+// Response data to ReadAll types Service task
+message ReadAllTypeMasterConfigResponse{
+    repeated TypesMasterConfigMessage masterConfig = 1;
+    int64 totalCount =2;
+    int64 appLimit = 3;
+ }
+//########## Create ##########//
+// Request data to create new Service task
+message CreateMasterConfigMessageRequest{
+    // Service entity to add
+    MasterConfigMessage masterConfig = 1;
+}
+
+// Contains data of created Service task
+message CreateMasterConfigMessageResponse{
+    // return of created masterConfig
+    string id = 1;
+}
+
+//########## Update ##########//
+// Request data to Update Service task
+message UpdateMasterConfigRequest{
+    MasterConfigMessage masterConfig = 1;
+}
+
+// Response data to Update Service task
+message UpdateMasterConfigResponse{
+    MasterConfigMessage masterConfig = 1;
+}
+
+
+//########## Patch ##########//
+// Request data to patch Service task
+message PatchMasterConfigRequest{
+    string id = 1;
+    MasterConfigMessage masterConfig = 3;
+}
+
+// Response data to patch Service task
+message PatchMasterConfigResponse{
+    // Task entity read by ID
+    MasterConfigMessage masterConfig = 1;
+}
+
+//########## ReadById and Delete ##########//
+// Contains Service task data specified in by ID request
+message ReadMasterConfigResponse{
+    // Task entity read by ID
+    MasterConfigMessage masterConfig = 1;
+}
+
+// Get MasterConfig by ID
+message MasterConfigId {
+    string id = 1;
+}
+
+// Get response of Delete MasterConfig
+message DeleteMasterConfigeResponse {
+    string result = 1;
+}
+
+
+//Service of MasterConfig
+service MasterConfig{
+    rpc ReadAll(ReadAllMasterConfigRequest)returns(ReadAllMasterConfigResponse){}
+    rpc Create(CreateMasterConfigMessageRequest)returns(CreateMasterConfigMessageResponse){}
+    rpc Update(UpdateMasterConfigRequest)returns(UpdateMasterConfigResponse){}
+    rpc Patch(PatchMasterConfigRequest)returns(PatchMasterConfigResponse){}
+    rpc Delete(MasterConfigId)returns(DeleteMasterConfigeResponse){}
+    rpc ReadById (MasterConfigId) returns (ReadMasterConfigResponse){}
+    rpc ReadAllResourceTypes(ReadAllMasterConfigRequest)returns(ReadAllTypeMasterConfigResponse){}
+}

@@ -1,0 +1,96 @@
+{
+  "options": {
+    "ver": "1.0.0",
+    "inspectConflicts": false,
+    "semicolons": true,
+    "freeze": [],
+    "ts": false
+  },
+  "app": {
+    "environmentsAllowingSeedData": "",
+    "seedData": false,
+    "name": "drm",
+    "description": "Project drm",
+    "src": "src",
+    "packager": "npm@>= 3.0.0",
+    "providers": [
+      "rest",
+      "socketio"
+    ]
+  },
+  "services": {
+    "physicalResource": {
+      "name": "physicalResource",
+      "nameSingular": "physicalResource",
+      "subFolder": "v1",
+      "fileName": "physical-resource",
+      "adapter": "mongoose",
+      "path": "inventory-management/resource-inventory-manager/v1/physical-resource",
+      "isAuthEntity": false,
+      "graphql": false
+    },
+    "logicalResource": {
+      "name": "logicalResource",
+      "nameSingular": "logicalResource",
+      "subFolder": "v1",
+      "fileName": "logical-resource",
+      "adapter": "mongoose",
+      "path": "inventory-management/resource-inventory-manager/v1/logical-resource",
+      "isAuthEntity": false,
+      "graphql": false
+    },
+    "resourceCategory": {
+      "name": "resourceCategory",
+      "nameSingular": "resourceCategory",
+      "subFolder": "v1",
+      "fileName": "resource-category",
+      "adapter": "mongoose",
+      "path": "/resource-category",
+      "isAuthEntity": false,
+      "graphql": false
+    },
+    "categorySchema": {
+      "name": "categorySchema",
+      "nameSingular": "categorySchema",
+      "subFolder": "v1",
+      "fileName": "category-schema",
+      "adapter": "mongoose",
+      "path": "v1/category-schema",
+      "isAuthEntity": false,
+      "graphql": false
+    },
+    "changeResourceAccess": {
+      "name": "changeResourceAccess",
+      "nameSingular": "changeResourceAccess",
+      "subFolder": "v1",
+      "fileName": "change-resource-access",
+      "adapter": "mongoose",
+      "path": "v1/change-resource-access",
+      "isAuthEntity": false,
+      "graphql": false
+    },
+    "updateResource": {
+      "name": "updateResource",
+      "nameSingular": "updateResource",
+      "subFolder": "v1",
+      "fileName": "update-resource",
+      "adapter": "mongoose",
+      "path": "/update-resource",
+      "isAuthEntity": false,
+      "graphql": false
+    }
+  },
+  "hooks": {},
+  "connections": {
+    "mongoose": {
+      "database": "mongodb",
+      "adapter": "mongoose",
+      "connectionString": "mongodb://localhost:27017/drm"
+    },
+    "mongodb": {
+      "database": "mongodb",
+      "adapter": "mongodb",
+      "connectionString": "mongodb://172.20.23.89:27017/drm"
+    }
+  }
+}

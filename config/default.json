@@ -1,0 +1,35 @@
+{
+  "host": "localhost",
+  "port": 3031,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 1000
+  },
+  "tests": {
+    "environmentsAllowingSeedData": [
+      ""
+    ]
+  },
+  "mongodb": "mongodb://localhost:27017/drmDB",
+  "kafka": {
+    "topic": "LogicalResourceCreateEvent,LogicalResourceRemoveEvent,LogicalResourcePatchEvent,LogicalResourceUpdateEvent",
+    "brokers": "localhost:9092"
+  },
+  "gRPC": {
+    "host": "0.0.0.0",
+    "port": "30307",
+    "secure": false
+  },
+  "configService": {
+    "gRPCService": "0.0.0.0:30308"
+  },
+  "checkDuplicateNames": true,
+  "jwt": {
+    "secret": "sjtkca03keepfiring46br¤£@62,"
+  },
+  "inventory": {
+    "gRPCService": "0.0.0.0:30307"
+  },
+  "loggerLevel": "debug"
+}

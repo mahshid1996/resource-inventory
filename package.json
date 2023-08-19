@@ -1,0 +1,106 @@
+{
+  "name": "drm",
+  "description": "Project drm",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "mahshid1374",
+    "email": "Mahshid@1374"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "tests/"
+  },
+  "engines": {
+    "node": "^12.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/"
+    ],
+    "exclude": [],
+    "excludeNodeModules": false
+  },
+  "scripts": {
+    "test": "npm run mocha",
+    "test:all": "npm run eslint && cross-env NODE_ENV= npm run mocha",
+    "eslint": "eslint src/. tests/. --config .eslintrc.json",
+    "dev": "nodemon src/",
+    "dev:seed": "nodemon src/ --seed",
+    "start": "node src/",
+    "start:seed": "cross-env NODE_ENV= node src/ --seed",
+    "mocha": "NODE_ENV=test nyc --reporter=lcovonly mocha tests/ --recursive --exit --timeout 10000 --reporter mocha-sonarqube-reporter --reporter-options output=coverage/xunit.xml"
+  },
+  "dependencies": {
+    "@feathers-plus/batch-loader": "^0.3.6",
+    "@feathersjs/authentication": "^4.5.15",
+    "@feathersjs/authentication-local": "^4.5.15",
+    "@feathersjs/authentication-oauth": "^4.5.15",
+    "@feathersjs/configuration": "^4.5.11",
+    "@feathersjs/errors": "^4.5.11",
+    "@feathersjs/express": "^4.5.11",
+    "@feathersjs/feathers": "^4.5.11",
+    "@feathersjs/socketio": "^4.5.14",
+    "@grpc/grpc-js": "^1.2.9",
+    "@grpc/proto-loader": "^0.3.0",
+    "@tt-dap/common-logging-service": "^1.0.4",
+    "@tt-deep-rename-keys/tt-deep-rename-keys": "^1.0.1",
+    "ajv": "^8.11.0",
+    "assert": "^2.0.0",
+    "axios": "^0.21.1",
+    "camelcase": "^6.0.0",
+    "chai-http": "^4.3.0",
+    "chai-sorted": "^0.2.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "fast-json-patch": "^3.1.1",
+    "feathers-hooks-common": "^6.1.0",
+    "feathers-json-patch": "^1.0.5",
+    "feathers-memory": "^4.1.0",
+    "feathers-mongodb": "^3.4.0",
+    "feathers-mongodb-fuzzy-search": "^2.0.1",
+    "feathers-mongoose": "^6.3.0",
+    "feathers-swagger": "^2.0.0",
+    "feathers-versionate": "^0.2.2",
+    "helmet": "^3.22.0",
+    "jsonpath": "^1.0.2",
+    "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
+    "kafka-node": "^5.0.0",
+    "lodash": "^4.17.20",
+    "lodash.merge": "^4.6.2",
+    "long": "^4.0.0",
+    "moment": "^2.29.4",
+    "mongodb": "^3.5.9",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.13.9",
+    "mongoose-increment": "^2.0.0",
+    "pascalcase": "^1.0.0",
+    "passport": "^0.6.0",
+    "passport-http-bearer": "^1.0.1",
+    "safe-json-stringify": "^1.2.0",
+    "serve-favicon": "^2.5.0",
+    "setheader": "^1.0.2",
+    "swagger-ui-dist": "^4.15.2",
+    "url-parse": "^1.4.7",
+    "uuid": "^3.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^8.1.0",
+    "mocha": "^9.1.4",
+    "mocha-sonarqube-reporter": "^1.0.2",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0"
+  }
+}
