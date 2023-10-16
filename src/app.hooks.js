@@ -2,7 +2,6 @@
 const commonHooks = require('feathers-hooks-common');
 // !<DEFAULT> code: imports
 const log = require('./hooks/log');
-const {renameId} = require('./hooks/renameId');
 const {sendEvent} = require('./hooks/sendEvent');
 const {noteHistory}  = require('../src/hooks/noteHistory.js');
 const { BadRequest } = require('@feathersjs/errors');
@@ -47,18 +46,18 @@ let moduleExports = {
     // !code: after
     all: [log()],
     find: [
-       renameId,
+        ,
       function (context) {
         context.params.total = context.result.data ? context.result.total : undefined;
         context.result = context.result.data ? context.result.data : context.result;
       }
     ],
-    get: [ renameId],
-    create: [ renameId,sendEvent],
-    update: [ renameId,sendEvent],
+    get: [],
+    create: [ sendEvent],
+    update: [sendEvent],
     //,sendEvent
-    patch: [ renameId,sendEvent],
-    remove: [ renameId,sendEvent]
+    patch: [sendEvent],
+    remove: [sendEvent]
     // !end
   },
 
